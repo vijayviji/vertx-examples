@@ -15,14 +15,24 @@ public class Main {
     logger.info("Deploying verticles");
     Vertx vertx = Vertx.vertx();
 
+    //deployPointToPoint(vertx);
+    deployRequestReply(vertx);
+    //deployPublishSubscribe(vertx);
+  }
+
+  private static void deployPointToPoint(Vertx vertx) {
     // point-to-point
     vertx.deployVerticle(new Producer());
     vertx.deployVerticle(new Consumer());
+  }
 
+  private static void deployRequestReply(Vertx vertx) {
     // request-reply
     vertx.deployVerticle(new com.myvertxproj.vertx_eventbus.Verticles.RequestReply.Producer());
     vertx.deployVerticle(new com.myvertxproj.vertx_eventbus.Verticles.RequestReply.Consumer());
+  }
 
+  private static void deployPublishSubscribe(Vertx vertx) {
     // publish/subscribe
     vertx.deployVerticle(new Producer1());
     vertx.deployVerticle(new Consumer1());

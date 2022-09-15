@@ -15,7 +15,7 @@ public class Consumer extends AbstractVerticle {
   public void processMsg(Message<String> msg) {
     System.out.println("Msg received by Consumer: " + msg.body());
 
-    String reply = "request/reply-reply";
+    String reply = msg.body() + "-reply";
     System.out.println("Reply sent by Consumer: " + reply);
     msg.reply(reply);
   }
