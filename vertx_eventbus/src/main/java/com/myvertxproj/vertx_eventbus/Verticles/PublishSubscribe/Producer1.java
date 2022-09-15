@@ -13,7 +13,7 @@ public class Producer1 extends AbstractVerticle {
     for (int i = 0; i < 10; i++) {
       String actualMsg = msg + "-" + i;
       System.out.println("Msg sent by producer: " + actualMsg);
-      vertx.eventBus().request(PUBLISH_SUBSCRIBE_ADDR, actualMsg);
+      vertx.eventBus().publish(PUBLISH_SUBSCRIBE_ADDR, actualMsg);
     }
   }
 }
