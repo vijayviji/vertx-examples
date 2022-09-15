@@ -9,6 +9,8 @@
 
   <modules>
     <module>httpserver</module>
+    <module>timer</module>
+    <module>vertx_eventbus</module>
   </modules>
 
   <properties>
